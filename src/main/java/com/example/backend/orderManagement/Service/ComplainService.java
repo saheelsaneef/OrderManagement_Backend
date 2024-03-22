@@ -16,27 +16,16 @@ public class ComplainService {
     public ComplainService(ComplainRepository complainRepository) {
         this.complainRepository = complainRepository;
     }
-    public Complain saveComplain(Complain complain) {
-        return null; // Placeholder
-    }
+
 
 
     public List<Complain> getAllComplains() {
         return complainRepository.findAll();
     }
 
-
-    public Complain getComplainById(String id, Complain getComplainById) {
-        return null; // Placeholder
-    }
-
-    public Complain createComplain(Complain complain) {
-
-        Complain newComplain = null;
-
+    public Complain saveComplain(Complain complain) {
         return complainRepository.save(complain);
     }
-
 
     public Complain updateComplain(String id, Complain updatedComplain) {
 
@@ -63,5 +52,12 @@ public class ComplainService {
 
     }
 
+    public long getTotalComplains() {
+        return complainRepository.countBy();
+    }
+
+    public long getTotalPendingComplains() {
+        return complainRepository.countByStatus("Processing");
+    }
 
 }

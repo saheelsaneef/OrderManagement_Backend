@@ -17,7 +17,7 @@ public class  Complain {
         return id;
     }
 
-    public String getComplainDetails() {
+    public String getAllComplains() {
         return complainDetails;
     }
 
@@ -38,7 +38,7 @@ public class  Complain {
         this.id = id;
     }
 
-    public void setComplainDetails(String complainDetails) {
+    public void getComplainDetails(String complainDetails) {
         this.complainDetails = complainDetails;
     }
 
@@ -46,13 +46,6 @@ public class  Complain {
         this.complainStatus = complainStatus;
     }
 
-    public void setComplainType(String complainType) {
-        this.complainType = complainType;
-    }
-
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
 
 }
 

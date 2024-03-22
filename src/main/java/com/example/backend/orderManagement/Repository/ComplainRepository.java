@@ -8,9 +8,7 @@ import java.util.List;
 
 public interface ComplainRepository extends MongoRepository<Complain, String> {
 
+    long countBy();
 
-
-
-
-
+    long countByStatus(String status);
 }

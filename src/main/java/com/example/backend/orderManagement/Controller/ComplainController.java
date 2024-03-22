@@ -20,27 +20,38 @@ public class ComplainController {
         this.complainService = complainService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Complain>> getAllComplains() {
         List<Complain> complains = complainService.getAllComplains();
         return new ResponseEntity<>(complains, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Complain> createComplain(@RequestBody Complain complain) {
-        Complain newComplain = complainService.createComplain(complain);
+        Complain newComplain = complainService.saveComplain(complain);
         return new ResponseEntity<>(newComplain, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/id")
     public ResponseEntity<Complain> updateComplain(@PathVariable String id, @RequestBody Complain complain) {
         Complain updatedComplain = complainService.updateComplain(id, complain);
         return new ResponseEntity<>(updatedComplain, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id")
     public ResponseEntity<Void> deleteComplain(@PathVariable String id) {
         complainService.deleteComplain(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/count")
+    public long getTotalComplains() {
+        return complainService.getTotalComplains();
+    }
+
+    @GetMapping("/pending")
+    public long getTotalPendingComplains(){
+        return complainService.getTotalPendingComplains();
+    }
+
 }
