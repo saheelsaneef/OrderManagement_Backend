@@ -43,6 +43,14 @@ public class ComplainController {
         complainService.deleteComplain(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+    @GetMapping("/search")
+    public ResponseEntity<List<Complain>> searchComplains(
+            @RequestParam(required = false) String complainType,
+            @RequestParam(required = false) String customerMail) {
+
+        List<Complain> complains = complainService.searchComplains(complainType, customerMail);
+        return new ResponseEntity<>(complains, HttpStatus.OK);
+    }
 
     @GetMapping("/count")
     public long getTotalComplains() {

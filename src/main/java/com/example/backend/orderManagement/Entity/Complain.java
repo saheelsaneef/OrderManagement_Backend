@@ -11,6 +11,7 @@ public class  Complain {
     private String complainDetails;
     private String complainStatus;
     private String complainType;
+    private String customerMail;
     private List<Image> images;
 
     public String getId() {
@@ -44,6 +45,11 @@ public class  Complain {
 
     public void setComplainStatus(String complainStatus) {
         this.complainStatus = complainStatus;
+    }
+
+    public void searchComplains(String complainType,String customerMail){
+        this.complainType =complainType;
+        this.customerMail=customerMail;
     }
 
 

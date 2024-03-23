@@ -11,4 +11,9 @@ public interface ComplainRepository extends MongoRepository<Complain, String> {
     long countBy();
 
     long countByStatus(String status);
+    List<Complain> findByComplainType(String complainType);
+
+    List<Complain> findByCustomerMail(String customerMail);
+
+
 }

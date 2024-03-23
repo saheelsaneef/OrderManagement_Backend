@@ -18,7 +18,6 @@ public class ComplainService {
     }
 
 
-
     public List<Complain> getAllComplains() {
         return complainRepository.findAll();
     }
@@ -58,6 +57,19 @@ public class ComplainService {
 
     public long getTotalPendingComplains() {
         return complainRepository.countByStatus("Processing");
+    }
+
+    public List<Complain> searchComplains(String complainType, String customerMail) {
+
+        if (complainType != null) {
+            return complainRepository.findByComplainType(complainType);
+
+        } else if (customerMail != null) {
+            return complainRepository.findByCustomerMail(customerMail);
+
+        } else {
+            return complainRepository.findAll();
+        }
     }
 
 }
