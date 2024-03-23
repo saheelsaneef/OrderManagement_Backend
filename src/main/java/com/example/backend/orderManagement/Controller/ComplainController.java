@@ -26,8 +26,8 @@ public class ComplainController {
         return new ResponseEntity<>(complains, HttpStatus.OK);
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<Complain> createComplain(@RequestBody Complain complain) {
+    @PostMapping("/save")
+    public ResponseEntity<Complain> saveComplain(@RequestBody Complain complain) {
         Complain newComplain = complainService.saveComplain(complain);
         return new ResponseEntity<>(newComplain, HttpStatus.CREATED);
     }
